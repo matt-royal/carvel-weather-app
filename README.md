@@ -19,9 +19,7 @@ The app implements the following endpoints, as laid out in the assignment:
 ## Testing
 The app was test driven, mostly via the integration tests in `integration/`, but also contains some unit tests.
 
-You can run all tests with either of the following commands:
-- `go test ./...`
-- `ginkgo -r`
+You can run all tests with `go test ./...`
 
 NOTE: On macOS Big Sur, running the tests will trigger several popups confirming that you want to allow the application
       listen on its port. Unfortunately I was not able to find a way to avoid this pop up.

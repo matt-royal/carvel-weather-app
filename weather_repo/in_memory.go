@@ -3,7 +3,7 @@ package weather_repo
 import "sync"
 
 type InMemoryRepo struct {
-	mutex sync.RWMutex
+	mutex   sync.RWMutex
 	records []Record
 }
 
@@ -52,4 +52,3 @@ func (w *InMemoryRepo) DeleteAll() error {
 	w.records = []Record{}
 	return nil
 }
-

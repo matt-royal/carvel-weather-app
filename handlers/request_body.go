@@ -6,7 +6,7 @@ import (
 )
 
 type InvalidFieldError struct {
-	Field string
+	Field   string
 	Message string
 }
 

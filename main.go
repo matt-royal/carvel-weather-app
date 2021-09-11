@@ -2,14 +2,15 @@ package main
 
 import (
 	"fmt"
-	gorillaHandlers "github.com/gorilla/handlers"
-	"github.com/gorilla/mux"
-	"github.com/matt-royal/carvel-weather-app/handlers"
-	"github.com/matt-royal/carvel-weather-app/weather_repo"
 	"log"
 	"net/http"
 	"os"
 	"strconv"
+
+	gorillaHandlers "github.com/gorilla/handlers"
+	"github.com/gorilla/mux"
+	"github.com/matt-royal/carvel-weather-app/handlers"
+	"github.com/matt-royal/carvel-weather-app/weather_repo"
 )
 
 func main() {

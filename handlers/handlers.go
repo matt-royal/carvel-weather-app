@@ -3,9 +3,10 @@ package handlers
 import (
 	"encoding/json"
 	"errors"
-	"github.com/matt-royal/carvel-weather-app/weather_repo"
 	"log"
 	"net/http"
+
+	"github.com/matt-royal/carvel-weather-app/weather_repo"
 )
 
 type WeatherRepo interface {
@@ -83,9 +84,9 @@ func DeleteAllWeatherRecords(repo WeatherRepo, logger *log.Logger) func(w http.R
 
 func toRecord(body WeatherBody) weather_repo.Record {
 	return weather_repo.Record{
-		ID:                body.ID,
-		DateStr:           body.Date,
-		Location:          weather_repo.LocationRecord{
+		ID:      body.ID,
+		DateStr: body.Date,
+		Location: weather_repo.LocationRecord{
 			Lat:   body.Location.Lat,
 			Lon:   body.Location.Lon,
 			City:  body.Location.City,
@@ -101,7 +102,7 @@ func fromRecords(records []weather_repo.Record) []WeatherBody {
 		responseRecords[i] = WeatherBody{
 			ID:   record.ID,
 			Date: record.DateStr,
-			Location:          LocationBody{
+			Location: LocationBody{
 				Lat:   record.Location.Lat,
 				Lon:   record.Location.Lon,
 				City:  record.Location.City,
@@ -119,4 +120,3 @@ func handleInternalServerError(w http.ResponseWriter, logger *log.Logger, logCon
 	w.Write([]byte("Encountered a server error"))
 	logger.Printf("Request failed due to error: %v: %v", logContext, err.Error())
 }
-
