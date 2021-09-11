@@ -12,12 +12,12 @@ func (w *InMemoryRepo) Create(record Record) error {
 	defer w.mutex.Unlock()
 
 	for i, r := range w.records {
-		if r.ID > record.ID {
+		if record.ID < r.ID {
 			// keep the records in asc order of ID
 			w.records = append(w.records[:i+1], w.records[i:]...)
 			w.records[i] = record
 			return nil
-		} else if r.ID == record.ID {
+		} else if record.ID == r.ID {
 			return ErrorDuplicateID(r.ID)
 		}
 	}
